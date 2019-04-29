@@ -1,0 +1,13 @@
+<script language=javascript>
+	function action() {
+		var d = new Date();
+		document.getElementById("board").innerHTML = d+"~~~";
+		//document.write(d+"\n");
+		window.open("relocate.html","12306");
+		setTimeout("action()", 180000);
+	}
+	
+	setTimeout("action()", 0);
+</script>
+
+<div id=board></div>

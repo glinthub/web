@@ -1,0 +1,19 @@
+asdfasdfsadf
+<script>
+	var t=3;
+	function action() {
+		var d = new Date();
+		document.write(t + ":" + d +"<br />");
+		if (t-- == 0)
+		{
+			//window.location = "_blank";
+			document.write("over!");
+			return;
+		}
+		else
+			setTimeout("action()", 1000);
+	}
+	
+	setTimeout("action()", 1000);
+</script>
+

@@ -1,0 +1,71 @@
+<head><meta http-equiv="Content-Type" content="text/html;charset=gbk"></head>
+
+<style type="text/css">
+    body {font-family: calibri;}
+    div.site {font-family: calibri; float: left; border: 1px solid #cccccc; margin: 1px; padding: 1px; cursor: crosshair;}
+    div.category {border: 1px solid lightgreen; width: 400; padding: 5px;}
+    div.category_cap {position:relative; top: -15px; background: white; height: 20px; min-width: 30px; max-width: 60px; text-align: center; text-overflow: clip; padding: 2px; white-space:nowrap; overflow:hidden;}
+    div.category_cap:hover {overflow:visible;}
+    div.seperator {height: 20px;}
+    
+</style>
+
+<script>
+//document.write(window.location.href.substring(1,3));
+url=window.location.href;
+q = url.substring(url.lastIndexOf("?")+1,url.length);
+querys = q.split("&");
+if (querys.length > 1)
+{
+    tmp = querys[0].split("=");
+    category = tmp[1];
+
+    tmp = querys[1].split("=");
+    keyword = tmp[1];
+    
+}
+
+if (category=="company")
+{
+    webList=new Array(
+                    "http://www.baidu.com/s?wd=s%+site:bbs.c114.net",
+                    "http://www.baidu.com/s?wd=s%+site:csdn.net",
+                    "http://www.baidu.com/s?wd=s%+site:lagou.com"
+                    );
+}
+else if (category=="phone")
+{
+    webList=new Array(
+                    "http://sh.ganji.com/wu/b1/s/_s%/?&start_price=&end_price=650",
+                    "http://shanghai.baixing.com/shouji/?query=%s&价格[0]=0&价格[1]=650",
+                    "http://sh.58.com/shouji/?key=s%&cmcskey=&final=1&jump=1&specialtype=gls&sourcetype=4"
+                    );
+}
+else
+{
+}
+
+if (webList.length > 0)
+{
+        frameWidth=Math.floor(100/webList.length);
+        colsString = "";
+        for (i=0; i<webList.length-1; i++)
+        {
+            colsString = colsString + frameWidth + "%,";
+        }
+        colsString = colsString + "*";
+        document.write("<frameset cols=\""+colsString+"\">");
+
+        for (i=0; i<webList.length; i++)
+        {
+                webQ = webList[i].substring(0,webList[i].indexOf("s%")) + keyword + webList[i].substring(webList[i].indexOf("s%")+2, webList[i].length);
+                document.write("<frame src=" + webQ + "></frame>");
+        }
+
+        document.write("</frameset>");
+
+}
+
+
+</script>
+

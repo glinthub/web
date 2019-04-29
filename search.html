@@ -1,0 +1,40 @@
+<head><meta http-equiv="Content-Type" content="text/html;charset=gbk"></head>
+
+<style type="text/css">
+    body {font-family: calibri;}
+    div.site {font-family: calibri; float: left; border: 1px solid #cccccc; margin: 1px; padding: 1px; cursor: crosshair;}
+    div.category {border: 1px solid lightgreen; width: 400; padding: 5px;}
+    div.category_cap {position:relative; top: -15px; background: white; height: 20px; min-width: 30px; max-width: 60px; text-align: center; text-overflow: clip; padding: 2px; white-space:nowrap; overflow:hidden;}
+    div.category_cap:hover {overflow:visible;}
+    div.seperator {height: 20px;}
+    
+</style>
+
+<div class=category>
+<div class=category_cap>网页</div>
+<form onsubmit="search('web');return false;"><input type=text name=key id=web value=""> <input type=submit value="search"></form>
+</div>
+
+<div class=seperator></div>
+
+<div class=category style="border-color: darkred;">
+<div class=category_cap>交易</div>
+<form onsubmit="search('sell');return false;"><input type=text name=key id=sell value=""> <input type=submit value="search"></form>
+</div>
+
+<div class=seperator></div>
+
+<div class=category style="border-color: darkblue;">
+<div class=category_cap>公司</div>
+<form onsubmit="search('company');return false;"><input type=text name=key id=company value=""> <input type=submit value="search"></form>
+</div>
+
+<script language=javascript>
+    function search(category)
+    {
+        var i;
+        var key = document.getElementById(category).value;
+        window.location="search1.html?category=" + category + "&key=" + key;
+    }
+</script>
+
